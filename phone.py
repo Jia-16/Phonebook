@@ -128,15 +128,35 @@ def search_existing(pb):
         display_all(temp)
         return check
     
-    def display_all(pb):
-        if not pb: 
-            print("List is empty: []") 
-        else: 
+def display_all(pb):
+    if not pb: 
+        print("List is empty: []") 
+    else: 
 		    for i in range(len(pb)):
-			    print(pb[i]) 
+		        print(pb[i]) 
 
-            def thanks():
-            print("Thank you for using the Smartphone Directory system!!")
-            print("Please visit again")
-        print("Hello dear user, welcome to our Smartphone Directory system")
-        print("You may proceed to explore this directory")
+def thanks():
+    print("Thank you for using the Smartphone Directory system!!")
+    print("Please visit again")
+
+print("Hello dear user, welcome to our Smartphone Directory system")
+print("You may proceed to explore this directory")
+
+ch = 1
+pb = initial_phonebook()
+while ch in (1, 2, 3, 4, 5):
+    ch = menu()
+    if ch == 1:
+        pb = add_contact(pb)
+    elif ch == 2: 
+		    pb = remove_existing(pb) 
+	elif ch == 3:
+         pb = delete_all(pb)
+    elif ch == 4:
+         d = search_existing(pb)
+         if d == -1:
+              print("This contact does not exist. PLease try again")
+    elif ch == 5:
+         display_all(pb)
+    else:
+         thanks()
